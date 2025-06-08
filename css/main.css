@@ -1,0 +1,149 @@
+@font-face{
+    font-family: Tanha;
+    src: url(../font/Tanha.ttf);
+}
+*{
+    direction: rtl;
+    font-family: Tanha;
+    box-sizing: border-box;
+
+}
+body{
+    font-size: 16px;
+    margin:0px;
+  
+  background: linear-gradient(to bottom, #f7f6e6, #fae9b7); /* گرادیان خامه‌ای تا زرد ملایم */
+
+
+}
+a{
+    text-decoration: none;
+    /*khat zir hame linkaro barmidarim*/
+}
+/* main.css */
+
+body, html {
+    overflow-x: hidden;
+}
+header{
+    font-size: 1em;
+}
+      
+header nav{
+    display: flex;
+    justify-content:space-between;
+    padding: 10px 15px;
+    font-size: 1em;
+       
+}
+header nav .nav-left .register-login-btn{
+    border:1px solid #44444452;
+    padding : 5px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+header nav .nav-left .register-login-btn i{
+    margin: 7px;
+    color: #444;
+
+}
+header nav .nav-left .register-login-btn a{
+    color :444;
+    margin : 0px 10px;
+    
+
+}
+header nav .nav-right{
+    display: flex;
+    align-items: center;
+
+}
+header nav .nav-right a{
+    color: #444;
+    margin: 0px 5px;
+    padding : 5px 10px;
+    font-size: 1.1em;
+
+}
+.footer {
+    text-align: center;
+    color: white; 
+    
+   
+}
+
+.footer-container {
+    background-color: rgb(65, 65, 65);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+    
+}
+.footer-title {
+  position: relative;
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+}
+
+footer h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 20%;
+  height: 5px;
+  background: linear-gradient(to right, transparent, #f06, transparent);
+  border-radius: 5px;
+  transform: translateX(-50%) scaleX(0); /* شروع از مرکز با مقیاس صفر */
+  transform-origin: center;
+  animation: lineGrow 0.6s ease-out forwards;
+}
+@keyframes lineGrow {
+  from {
+    transform: translateX(-50%) scaleX(0);
+  }
+  to {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.social-icons a i {
+    font-size: 24px; 
+    transition: color 0.3s ease; 
+   ;
+}
+
+
+.instagram-icon {
+    color: violet;
+}
+
+
+.telegram-icon {
+    color: rgb(74, 126, 238);
+}
+
+
+.facebook-icon {
+    color: rgb(39, 25, 241);
+}
+
+.social-link {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
