@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <meta charset="UTF-8">
+  <title>سبد خرید</title>
+  <style>
+    .header-container nav {
+  display: flex;
+  justify-content: space-between;
+  color: #4d3b4b;
+}
+
+.nav-right a,
+.nav-left a {
+  color: #7a0170;
+  text-decoration: none;
+}
+  h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #ff5722;
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+  h1::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: #ff5722;
+    margin: 8px auto 0;
+    border-radius: 4px;
+    animation: pulse 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse {
+    from { transform: scaleX(1); opacity: 0.6; }
+    to { transform: scaleX(1.4); opacity: 1; }
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  .cart-section,
+  .form-section {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fff;
+    padding: 20px 24px;
+    border-radius: 14px;
+    border: 1px solid #eee;
+    transition: transform 0.3s;
+  }
+
+  .cart-section:hover,
+  .form-section:hover {
+    transform: translateY(-3px);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 8px;
+    padding:8px 12px;
+    background: #fafafa;
+    border-radius: 10px;
+    border-right: 4px solid #ff9800;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    font-size: 14px;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  li:hover {
+    background: #fef6f2;
+  }
+
+  li strong {
+    color: #e65100;
+  }
+
+ li small,
+li em {
+  display: block;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-top: 2px; /* قبلاً بیشتر بود، حالا کمتر شده */
+}
+
+  li button {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  li button:hover {
+    background-color: #c62828;
+  }
+
+  .form-section label {
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+    font-size: 14px;
+    color: #444;
+  }
+
+  .form-section input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border 0.3s;
+  }
+
+  .form-section input:focus {
+    border-color: #ff5722;
+    outline: none;
+  }
+
+  .form-section button {
+    margin-top: 20px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #clearCart {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #clearCart:hover {
+    background: #c62828;
+  }
+
+  #finalSubmit {
+    background: #4caf50;
+    color: white;
+    width: 100%;
+  }
+
+  #finalSubmit:hover {
+    background: #2e7d32;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+</style>
+<body>
+  <header class="header-container">
+       <nav>
+         <div class="nav-right">
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="home.html"><i class="fas fa-home"></i></a>  
+         </div>
+         <div class="nav-left">
+            <div class="register-login-btn">
+                <i class="fas fa-user"></i>
+                <a href="#">ثبت نام/ورود</a>
+            </div>
+         </div>
+       </nav>
+  </header>
+    <h1>🛒 سبد خرید شما</h1>
+    <div class="container">
+        <div class="cart-section">
+            <ul id="cart-items"></ul>
+            <button id="clearCart">پاک کردن سبد خرید</button>
+        </div>
+
+        <div class="form-section">
+            <label for="username">نام شما:</label>
+            <input type="text" id="username" placeholder="نام خود را وارد کنید">
+
+            <label for="tableNumber">شماره میز:</label>
+            <input type="number" id="tableNumber" min="1" max="20" placeholder="شماره میز خود را وارد کنید">
+            
+            <button id="finalSubmit">📌 ثبت نهایی</button>
+        </div>
+    </div>
+  <footer class="footer">
+    <div class="footer-container">
+      <h2 class="footer-title">فست فود برتر</h2>
+      <p class="footer-text">تجربه‌ای بی‌نظیر از طعم و کیفیت</p>
+      <div class="social-icons">
+        <a href="#" class="social-link"><i
+            class="fab fa-instagram instagram-icon"></i></a>
+        <a href="#" class="social-link"><i
+            class="fab fa-telegram-plane telegram-icon"></i></a>
+        <a href="#" class="social-link"><i
+            class="fab fa-facebook-f facebook-icon"></i></a>
+      </div>
+          <p class="copyright">© 2025 تمامی حقوق محفوظ است | فست فود برتر</p>
+    </div>
+  </footer>
+
+    <script>
+      document.getElementById("finalSubmit").onclick = function() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let username = document.getElementById("username").value.trim();
+    let tableNumber = document.getElementById("tableNumber").value.trim();
+
+    if (cart.length === 0) {
+        alert("🚨 سبد خرید شما خالی است! لطفاً ابتدا سفارش دهید.");
+        return;
+    }
+
+    if (!username || !tableNumber) {
+        alert("⚠️ لطفاً نام و شماره میز خود را وارد کنید!");
+        return;
+    }
+
+
+    alert(`${username} عزیز سفارش شما با موفقیت برای میز ${tableNumber} ثبت شد ✅`);
+
+
+    localStorage.removeItem('cart');
+    loadCart();
+};
+
+function loadCart() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cartList = document.getElementById("cart-items");
+
+    if (cart.length === 0) {
+        cartList.innerHTML = "<p>سبد خرید شما خالی است.</p>";
+    } else {
+        cartList.innerHTML = "";
+        cart.forEach((item, index) => {
+            let listItem = document.createElement("li");
+            listItem.innerHTML = `<strong>${item.topping}</strong> <br>
+                <small>اضافات: ${item.extras ? item.extras.join(", ") : "ندارد"}</small> <br>
+                <em>یادداشت: ${item.notes ? item.notes : "بدون یادداشت"}</em>`;
+
+            let deleteButton = document.createElement("button");
+            deleteButton.textContent = " حذف";
+            deleteButton.onclick = () => {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+            };
+
+            listItem.appendChild(deleteButton);
+            cartList.appendChild(listItem);
+        });
+    }
+}
+
+document.getElementById("clearCart").onclick = function() {
+    localStorage.removeItem('cart');
+    loadCart();
+};
+
+window.onload = loadCart;
+
+    </script>
+
+</body>
+</html>
