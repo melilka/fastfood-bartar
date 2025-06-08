@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fa">
+ <head>
+    <meta charset="UTF-8">
+    <title>انتخاب مواد اولیه پیتزا</title>
+    <link rel="stylesheet" href="./css/pizza.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body { direction: rtl; }
+        label { display: block; margin: 8px 0; }
+        .content { margin: 10px; }
+    </style>
+</head>
+
+<body>
+  
+  <header class="header-container">
+       <nav>
+         <div class="nav-right">
+            <a href="cart.html" target="_blank"><i class="fas fa-shopping-cart"></i></a>
+            <a href="home.html" target="_blank"><i class="fas fa-home"></i></a>  
+         </div>
+         <div class="nav-left">
+            <div class="register-login-btn">
+                <i class="fas fa-user"></i>
+                <a href="#">ثبت نام/ورود</a>
+            </div>
+         </div>
+       </nav>
+  </header>
+  
+  <div class="content">
+
+   <form onsubmit="return false;">
+
+
+    <h2>مرحله اول انتخاب خمیر:</h2>
+    <label><input type="radio" name="topping" value="دور پنیر" /> دور پنیر</label>
+    <label><input type="radio" name="topping" value="دور سوسیس" /> دور سوسیس</label>
+    <label><input type="radio" name="topping" value="آمریکایی" /> آمریکایی</label>
+    <label><input type="radio" name="topping" value="ایتالیایی" /> ایتالیایی</label>
+
+    <h2>مرحله دوم انتخاب سس:</h2>
+    <label><input type="checkbox" name="toppings" value="سس کچاپ" /> سس کچاپ</label>
+    <label><input type="checkbox" name="toppings" value="سس سیر" /> سس سیر</label>
+    <label><input type="checkbox" name="toppings" value="سس پستو" /> سس پستو</label>
+    <label><input type="checkbox" name="toppings" value="سس مکزیکی" /> سس مکزیکی</label>
+
+     <h2>مرحله سوم انتخاب پنیر:</h2>
+    <label><input type="checkbox" name="toppings" value="پنیر چدار" />پنیر چدار</label>
+    <label><input type="checkbox" name="toppings" value="پنیر گودا" /> پنیر گودا</label>
+    <label><input type="checkbox" name="toppings" value="پنیر موزارلا" /> پنیر موزارلا</label>
+
+    <h2>مرحله چهرم انتخاب نوع گوشت:</h2>
+    <label><input type="checkbox" name="toppings" value="ژامبون" /> ژامبون</label>
+    <label><input type="checkbox" name="toppings" value="سوسیس پنیری" />سوسی پنیری</label>
+    <label><input type="checkbox" name="toppings" value="گوشت قلقلی" />گوشت قلقلی</label>
+    <label><input type="checkbox" name="toppings" value="مرغ گریل شده" /> مرغ گریل شده</label>
+    <label><input type="checkbox" name="toppings" value="پپرونی" /> پپرونی</label>
+    <label><input type="checkbox" name="toppings" value="بیکن" />بیکن</label>
+    <label><input type="checkbox" name="toppings" value="ژامبون بوقلمون" /> ژامبون بوقلمون</label>
+
+     <h2>مرحله آخر انتخاب سبزیجات:</h2>
+    <label><input type="checkbox" name="toppings" value="زیتون سیاه" /> زیتون سیاه</label>
+    <label><input type="checkbox" name="toppings" value="فلفل دلمه ای" /> فلفل دلمه ای</label>
+    <label><input type="checkbox" name="toppings" value="قارچ" />قارچ</label>
+    <label><input type="checkbox" name="toppings" value="ذرت" />ذرت</label>
+    <label><input type="checkbox" name="toppings" value="گوجه گیلاسی" /> گوجه گیلاسی</label>
+    <label><input type="checkbox" name="toppings" value="زیتون سبز" /> زیتون سبز</label>
+    <label><input type="checkbox" name="toppings" value="پنیر پستو" /> پنیر پستو</label>
+    <label><input type="checkbox" name="toppings" value="فلفل هالوپینو" /> فلفل هالوپینو</label>
+    <label><input type="checkbox" name="toppings" value="اسفناج" /> اسفناج</label>
+
+
+
+    <!-- توضیحات -->
+    <label>توضیحات بیشتر:
+      <textarea id="notes" rows="3" cols="30"></textarea>
+    </label>
+
+    <!-- دکمه افزودن به سبد -->
+    <button type="button" onclick="addToCart()">افزودن به سبد خرید</button>
+  </form>
+</div>
+  <footer class="footer">
+    <div class="footer-container">
+      <h2 class="footer-title">فست فود برتر</h2>
+      <p class="footer-text">تجربه‌ای بی‌نظیر از طعم و کیفیت</p>
+      <div class="social-icons">
+        <a href="#" class="social-link"><i
+            class="fab fa-instagram instagram-icon"></i></a>
+        <a href="#" class="social-link"><i
+            class="fab fa-telegram-plane telegram-icon"></i></a>
+        <a href="#" class="social-link"><i
+            class="fab fa-facebook-f facebook-icon"></i></a>
+      </div>
+          <p class="copyright">© 2025 تمامی حقوق محفوظ است | فست فود برتر</p>
+    </div>
+  </footer>
+
+  <script>
+    function addToCart() {
+    const toppingRadio = document.querySelector('input[name="topping"]:checked'); 
+    const checkboxes = document.querySelectorAll('input[name="toppings"]:checked');
+    const notes = document.getElementById('notes') ? document.getElementById('notes').value.trim() : "";
+
+    if (!toppingRadio || checkboxes.length < 1) { 
+        alert("لطفا مقادیر ضروری را وارد کنید");
+        return;
+    }
+
+    let extras = [...checkboxes].map(checkbox => checkbox.value); 
+
+    const order = {
+        topping: toppingRadio.value,
+        extras: extras,
+        notes: notes
+    };
+
+    console.log(toppingRadio.value);
+    console.log(extras);
+    console.log(notes);
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(order);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert("سفارش به سبد خرید اضافه شد!");
+    window.location.href = "cart.html";
+  }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
