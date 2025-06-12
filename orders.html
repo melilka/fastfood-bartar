@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>مدیریت سفارشات</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      direction: rtl;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #e91e63;
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .orders-container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .order {
+      background: #fff3e0;
+      padding: 15px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      border-left: 4px solid #ff9800;
+      position: relative;
+    }
+
+    .order strong {
+      color: #d84315;
+    }
+
+    .order ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .order li {
+      padding: 4px;
+      border-bottom: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    .order li:last-child {
+      border-bottom: none;
+    }
+
+    .delete-order {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #e53935;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .delete-order:hover {
+      background: #c62828;
+    }
+
+    .clear-orders {
+      display: block;
+      margin: 20px auto;
+      background: #e53935;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .clear-orders:hover {
+      background: #c62828;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📋 سفارش‌های ثبت‌شده</h1>
+  <div class="orders-container">
+    <div id="orders-list"></div>
+    <button class="clear-orders" onclick="clearOrders()">پاک کردن تمام سفارشات</button>
+  </div>
+
+  <script>
+    function loadOrders() {
+        let orders = JSON.parse(localStorage.getItem("orders")) || [];
+        let ordersList = document.getElementById("orders-list");
+
+        if (orders.length === 0) {
+            ordersList.innerHTML = "<p style='text-align:center; color:#777;'>هیچ سفارشی ثبت نشده است.</p>";
+        } else {
+            ordersList.innerHTML = "";
+            orders.forEach((order, index) => {
+                let div = document.createElement("div");
+                div.className = "order";
+
+                let items = order.cart.map(item => {
+                    return `<li>${item.name} - ${item.price} تومان</li>`;
+                }).join("");
+
+                div.innerHTML = `
+                    <p><strong>نام:</strong> ${order.username}</p>
+                    <p><strong>شماره میز:</strong> ${order.tableNumber}</p>
+                    <ul>${items}</ul>
+                    <button class="delete-order" onclick="deleteOrder(${index})">حذف</button>
+                `;
+                ordersList.appendChild(div);
+            });
+        }
+    }
+
+    function deleteOrder(index) {
+        let orders = JSON.parse(localStorage.getItem("orders")) || [];
+        orders.splice(index, 1);
+        localStorage.setItem("orders", JSON.stringify(orders));
+        loadOrders();
+    }
+
+    function clearOrders() {
+        localStorage.removeItem("orders");
+        loadOrders();
+    }
+
+    window.onload = loadOrders;
+  </script>
+
+</body>
+</html>

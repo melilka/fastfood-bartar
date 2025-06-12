@@ -20,13 +20,7 @@
        <nav>
          <div class="nav-right">
             <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-            <a href="home.html"><i class="fas fa-home"></i></a>  
-         </div>
-         <div class="nav-left">
-            <div class="register-login-btn">
-                <i class="fas fa-user"></i>
-                <a href="#">ثبت نام/ورود</a>
-            </div>
+            <a href="index.html"><i class="fas fa-home"></i></a>  
          </div>
        </nav>
   </header>
@@ -70,14 +64,10 @@
     <label><input type="checkbox" name="toppings" value="سیبزمینی سرخ شده" />سیبزمینی سرخ شده</label>
     <label><input type="checkbox" name="toppings" value="اسفناج" /> اسفناج</label>
 
-
-
-    <!-- توضیحات -->
     <label>توضیحات بیشتر:
       <textarea id="notes" rows="3" cols="30"></textarea>
     </label>
 
-    <!-- دکمه افزودن به سبد -->
     <button type="button" onclick="addToCart()">افزودن به سبد خرید</button>
   </form>
 </div>
@@ -95,12 +85,11 @@
     let extras = [...checkboxes].map(checkbox => checkbox.value); 
 
     const order = {
+      name:"برگر مخصوص شما",
         extras: extras,
-        notes: notes
+        notes: notes,
+        price:580000
     };
-
-    console.log(extras);
-    console.log(notes);
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push(order);

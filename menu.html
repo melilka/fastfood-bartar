@@ -6,11 +6,10 @@
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
-  <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
 .header-container nav {
@@ -20,22 +19,6 @@
   padding: 15px 30px;
   color: #fff;
 }
-
-.nav-right a,
-.nav-left a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 15px;
-  font-size: 1.2rem;
-}
-
-.register-login-btn i {
-  margin-left: 5px;
-}
-.featured {
-    margin: 10vh 0;
-}
-
 .featured h2 {
     text-align: center;
     font-size: 2.5rem;
@@ -53,7 +36,6 @@
     transform: scale(0.9);
 }
 
-/* گرید ویژه */
 .featured-grid {
     display: grid;
     gap: 20px;
@@ -123,7 +105,18 @@
     transform: scale(0.98);
     transition: all 0.1s ease;
 }
-
+@media (max-width: 550px) {
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .featured h2 {
+        font-size: 1.5rem;
+    }
+    .featured-grid .card img {
+        width: 23vh;
+        height: 18vh;
+    }
+}
 @media (max-width: 768px) {
     .featured-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -158,13 +151,7 @@
        <nav>
          <div class="nav-right">
             <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-            <a href="home.html"><i class="fas fa-home"></i></a>  
-         </div>
-         <div class="nav-left">
-            <div class="register-login-btn">
-                <i class="fas fa-user"></i>
-                <a href="#">ثبت نام/ورود</a>
-            </div>
+            <a href="index.html"><i class="fas fa-home"></i></a>  
          </div>
        </nav>
   </header>
@@ -175,144 +162,144 @@
       <div class="featured-grid">
 
         
-        <div id="pizza" class="card" data-name="اسپایسی برگر" data-price="220000">
-          <img src="./image/نوشیدنی.jpg" alt="اسپایسی برگر">
-          <p class="title">اسپایسی برگر</p>
-          <p class="price">۲۲۰٬۰۰۰ تومان</p>
+        <div class="card" data-name="پیتزا مارگایتا" data-price="300000">
+          <img src="./image/پیتزا مارگاریتا.jpg" alt="پیتزا مارگاریتا">
+          <p class="title">پیتزا مارگایتا</p>
+          <p class="price">۳۰۰٬۰۰۰ تومان</p>
          <button onclick="addToCart(this)">ثبت سفارش</button>
 
         </div>
 
-        <div class="card" data-name="باربکیو گوسفندی" data-price="350000">
-          <img src="./image/item-2.png" alt="">
-          <p class="title">باربکیو گوسفندی</p>
-          <p class="price">۳۵۰٬۰۰۰ تومان</p>
+        <div class="card" data-name="پیتزا چوریتسو" data-price="350000">
+          <img src="./image/پیتزا چوریتسو.jpg" alt="">
+          <p class="title">پیتزا چوریتسو</p>
+          <p class="price">۳۳۰٬۰۰۰ تومان</p>
          <button onclick="addToCart(this)">ثبت سفارش</button>
 
         </div>
 
-        <div class="card" data-name="برگر گوشت گاو" data-price="150000">
-          <img src="./image/item-3.png" alt="">
-          <p class="title">برگر گوشت گاو</p>
+        <div class="card" data-name="پیتزا هاوایی" data-price="350000">
+          <img src="./image/پیتزا هاوایی.jpg" alt="">
+          <p class="title">پیتزا هاوایی</p>
+          <p class="price">۳۵۰٬۰۰۰ تومان</p>
+          <button onclick="addToCart(this)">ثبت سفارش</button>
+        </div>
+
+        <div class="card" data-name="پیتزا دریایی" data-price="500000">
+          <img src="./image/پیتزا دریایی دو.jpg" alt="">
+          <p class="title">پیتزا دریایی</p>
+          <p class="price">۵۰۰٬۰۰۰ تومان</p>
+          <button onclick="addToCart(this)">ثبت سفارش</button>
+        </div>
+
+        <div id="Burger" class="card" data-name="بیکن برگر" data-price="330000">
+          <img src="./image/بیکن برگر.jpg" alt="">
+          <p class="title">بیکن برگر</p>
+          <p class="price">۳۳۰٬۰۰۰ تومان</p>
+          <button onclick="addToCart(this)">ثبت سفارش</button>
+        </div>
+
+        <div class="card" data-name="چیکن برگر" data-price="300000">
+          <img src="./image/چیکن برگر.jpg" alt="">
+          <p class="title">چیکن برگر</p>
+          <p class="price">۳۰۰٬۰۰۰ تومان</p>
+          <button onclick="addToCart(this)">ثبت سفارش</button>
+        </div>
+
+        <div class="card" data-name="دبل چیز برگر" data-price="320000">
+          <img src="./image/دبل چیز برگر.jpg" alt="">
+          <p class="title">دبل چیز برگر</p>
+          <p class="price">۳۲۰٬۰۰۰ تومان</p>
+          <button onclick="addToCart(this)">ثبت سفارش</button>
+        </div>
+
+        <div class="card" data-name="برگر هاوایی" data-price="350000">
+          <img src="./image/برگر هاوایی.jpg" alt="">
+          <p class="title">برگر هاوایی</p>
+          <p class="price">۳۵۰٬۰۰۰ تومان</p>
+          <button onclick="addToCart(this)">ثبت سفارش</button>
+        </div>
+
+        <div id="starter" class="card" data-name="پنینی" data-price="150000">
+          <img src="./image/panini.jpg" alt="">
+          <p class="title">پنینی</p>
           <p class="price">۱۵۰٬۰۰۰ تومان</p>
           <button onclick="addToCart(this)">ثبت سفارش</button>
         </div>
 
-        <div class="card" data-name="اسپایسی برگر" data-price="220000">
-          <img src="./image/item-1.png" alt="اسپایسی برگر">
-          <p class="title">اسپایسی برگر</p>
+        <div class="card" data-name="پاستا الفردو" data-price="300000">
+          <img src="./image/alfredo.webp" alt="">
+          <p class="title">پاستا الفردو</p>
+          <p class="price">۳۰۰٬۰۰۰ تومان</p>
+          <button onclick="addToCart(this)">ثبت سفارش</button>
+        </div>
+
+        <div class="card" data-name="پاستا پستو" data-price="300000">
+          <img src="./image/پستوو.webp" alt="">
+          <p class="title">پاستا پستو</p>
+          <p class="price">۳۰۰٬۰۰۰ تومان</p>
+          <button onclick="addToCart(this)">ثبت سفارش</button>
+        </div>
+
+        <div class="card" data-name="پاستا فتوچینی" data-price="300000">
+          <img src="./image/پاستا دو.jpg" alt="">
+          <p class="title">پاستا فتوچینی</p>
+          <p class="price">۳۰۰٬۰۰۰ تومان</p>
+          <button onclick="addToCart(this)">ثبت سفارش</button>
+        </div>
+
+        <div class="card" data-name="لازانیا" data-price="320000">
+          <img src="./image/لازانیا.jpg" alt="">
+          <p class="title">لازانیا</p>
+          <p class="price">۳۲۰٬۰۰۰ تومان</p>
+          <button onclick="addToCart(this)">ثبت سفارش</button>
+        </div>
+
+        <div class="card" data-name="سیب زمینی با الفرد" data-price="250000">
+          <img src="./image/سیب-زمینی.jpg" alt="">
+          <p class="title">سیب زمین با الفردو</p>
+          <p class="price">۲۵۰٬۰۰۰ تومان</p>
+          <button onclick="addToCart(this)">ثبت سفارش</button>
+        </div>
+
+        <div class="card" data-name="سیب زمینی با چدار" data-price="250000">
+          <img src="./image/سیب زمینی با چدار.jpg" alt="">
+          <p class="title">سیب زمینی با چدار</p>
+          <p class="price">۲۵۰٬۰۰۰ تومان</p>
+          <button onclick="addToCart(this)">ثبت سفارش</button>
+        </div>
+
+        <div class="card" data-name="سالاد سزار" data-price="220000">
+          <img src="./image/سالاد سزار.jpg" alt="">
+          <p class="title">سالاد سزار</p>
           <p class="price">۲۲۰٬۰۰۰ تومان</p>
           <button onclick="addToCart(this)">ثبت سفارش</button>
         </div>
 
-        <div id="Burger" class="card" data-name="باربکیو گوسفندی" data-price="350000">
-          <img src="./image/item-2.png" alt="">
-          <p class="title">باربکیو گوسفندی</p>
-          <p class="price">۳۵۰٬۰۰۰ تومان</p>
+        <div id="drink" class="card" data-name="نوشابه" data-price="50000">
+          <img src="./image/نوشابه چهار.jpg" alt="">
+          <p class="title">نوشابه</p>
+          <p class="price">۵۰٬۰۰۰ تومان</p>
           <button onclick="addToCart(this)">ثبت سفارش</button>
         </div>
 
-        <div class="card" data-name="برگر گوشت گاو" data-price="150000">
-          <img src="./image/item-3.png" alt="">
-          <p class="title">برگر گوشت گاو</p>
-          <p class="price">۱۵۰٬۰۰۰ تومان</p>
+        <div class="card" data-name="ماءالشعیر" data-price="50000">
+          <img src="./image/ماءالشعیر.png" alt="">
+          <p class="title">ماءالشعیر</p>
+          <p class="price">۵۰٬۰۰۰ تومان</p>
           <button onclick="addToCart(this)">ثبت سفارش</button>
         </div>
 
-        <div class="card" data-name="اسپایسی برگر" data-price="220000">
-          <img src="./image/item-1.png" alt="اسپایسی برگر">
-          <p class="title">اسپایسی برگر</p>
-          <p class="price">۲۲۰٬۰۰۰ تومان</p>
+         <div class="card" data-name="رد موهیتو" data-price="250000">
+          <img src="./image/رد موهیتو.jpg" alt="">
+          <p class="title">رد موهیتو</p>
+          <p class="price">۲۵۰٬۰۰۰ تومان</p>
           <button onclick="addToCart(this)">ثبت سفارش</button>
         </div>
 
-        <div class="card" data-name="باربکیو گوسفندی" data-price="350000">
-          <img src="./image/item-2.png" alt="">
-          <p class="title">باربکیو گوسفندی</p>
-          <p class="price">۳۵۰٬۰۰۰ تومان</p>
-          <button onclick="addToCart(this)">ثبت سفارش</button>
-        </div>
-
-        <div id="starter" class="card" data-name="برگر گوشت گاو" data-price="150000">
-          <img src="./image/item-3.png" alt="">
-          <p class="title">برگر گوشت گاو</p>
-          <p class="price">۱۵۰٬۰۰۰ تومان</p>
-          <button onclick="addToCart(this)">ثبت سفارش</button>
-        </div>
-
-        <div class="card" data-name="اسپایسی برگر" data-price="220000">
-          <img src="./image/item-1.png" alt="اسپایسی برگر">
-          <p class="title">اسپایسی برگر</p>
-          <p class="price">۲۲۰٬۰۰۰ تومان</p>
-          <button onclick="addToCart(this)">ثبت سفارش</button>
-        </div>
-
-        <div class="card" data-name="باربکیو گوسفندی" data-price="350000">
-          <img src="./image/item-2.png" alt="">
-          <p class="title">باربکیو گوسفندی</p>
-          <p class="price">۳۵۰٬۰۰۰ تومان</p>
-          <button onclick="addToCart(this)">ثبت سفارش</button>
-        </div>
-
-        <div class="card" data-name="برگر گوشت گاو" data-price="150000">
-          <img src="./image/item-3.png" alt="">
-          <p class="title">برگر گوشت گاو</p>
-          <p class="price">۱۵۰٬۰۰۰ تومان</p>
-          <button onclick="addToCart(this)">ثبت سفارش</button>
-        </div>
-
-        <div class="card" data-name="اسپایسی برگر" data-price="220000">
-          <img src="./image/item-1.png" alt="اسپایسی برگر">
-          <p class="title">اسپایسی برگر</p>
-          <p class="price">۲۲۰٬۰۰۰ تومان</p>
-          <button onclick="addToCart(this)">ثبت سفارش</button>
-        </div>
-
-        <div class="card" data-name="باربکیو گوسفندی" data-price="350000">
-          <img src="./image/item-2.png" alt="">
-          <p class="title">باربکیو گوسفندی</p>
-          <p class="price">۳۵۰٬۰۰۰ تومان</p>
-          <button onclick="addToCart(this)">ثبت سفارش</button>
-        </div>
-
-        <div class="card" data-name="برگر گوشت گاو" data-price="150000">
-          <img src="./image/item-3.png" alt="">
-          <p class="title">برگر گوشت گاو</p>
-          <p class="price">۱۵۰٬۰۰۰ تومان</p>
-          <button onclick="addToCart(this)">ثبت سفارش</button>
-        </div>
-
-        <div class="card" data-name="اسپایسی برگر" data-price="220000">
-          <img src="./image/item-1.png" alt="اسپایسی برگر">
-          <p class="title">اسپایسی برگر</p>
-          <p class="price">۲۲۰٬۰۰۰ تومان</p>
-          <button onclick="addToCart(this)">ثبت سفارش</button>
-        </div>
-
-        <div id="drink" class="card" data-name="باربکیو گوسفندی" data-price="350000">
-          <img src="./image/item-2.png" alt="">
-          <p class="title">باربکیو گوسفندی</p>
-          <p class="price">۳۵۰٬۰۰۰ تومان</p>
-          <button onclick="addToCart(this)">ثبت سفارش</button>
-        </div>
-
-        <div class="card" data-name="برگر گوشت گاو" data-price="150000">
-          <img src="./image/item-3.png" alt="">
-          <p class="title">برگر گوشت گاو</p>
-          <p class="price">۱۵۰٬۰۰۰ تومان</p>
-          <button onclick="addToCart(this)">ثبت سفارش</button>
-        </div>
-
-         <div class="card" data-name="باربکیو گوسفندی" data-price="350000">
-          <img src="./image/item-2.png" alt="">
-          <p class="title">باربکیو گوسفندی</p>
-          <p class="price">۳۵۰٬۰۰۰ تومان</p>
-          <button onclick="addToCart(this)">ثبت سفارش</button>
-        </div>
-
-        <div class="card" data-name="برگر گوشت گاو" data-price="150000">
-          <img src="./image/item-3.png" alt="">
-          <p class="title">برگر گوشت گاو</p>
+        <div class="card" data-name="موهیتو" data-price="150000">
+          <img src="./image/موهیتو.jpg" alt="">
+          <p class="title">موهیتو</p>
           <p class="price">۱۵۰٬۰۰۰ تومان</p>
           <button onclick="addToCart(this)">ثبت سفارش</button>
         </div>
@@ -342,20 +329,21 @@
   
    <script>
    function addToCart(buttonElement) {
-    let name = buttonElement.parentElement.getAttribute("data-name");
-    if (!name) {
-        alert("مشکلی در دریافت نام غذا وجود دارد!");
+    let card = buttonElement.closest(".card");
+    let name = card.getAttribute("data-name");
+    let price = card.getAttribute("data-price");
+
+    if (!name || !price) {
+        alert("⚠️ مشکلی در دریافت نام یا قیمت غذا وجود دارد!");
         return;
     }
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push({ name });
-    localStorage.setItem('cart', JSON.stringify(cart));
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ name, price });
+    localStorage.setItem("cart", JSON.stringify(cart));
 
-    alert(name + " به سبد خرید اضافه شد!");
+    alert(`${name} به سبد خرید اضافه شد! قیمت: ${price} تومان`);
 }
-
-
    </script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script> AOS.init();</script>

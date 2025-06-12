@@ -12,12 +12,6 @@
   justify-content: space-between;
   color: #4d3b4b;
 }
-
-.nav-right a,
-.nav-left a {
-  color: #7a0170;
-  text-decoration: none;
-}
   h1 {
     text-align: center;
     font-size: 26px;
@@ -66,8 +60,24 @@
   .form-section:hover {
     transform: translateY(-3px);
   }
+  #total-price-container {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #fff3e0;
+  border-radius: 8px;
+  border: 1px solid #ffa726;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: #e65100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-  ul {
+#total-price-container p {
+  margin: 0;
+}
+
+ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -99,7 +109,7 @@ li em {
   color: #555;
   font-size: 13px;
   line-height: 1.4;
-  margin-top: 2px; /* قبلاً بیشتر بود، حالا کمتر شده */
+  margin-top: 2px;
 }
 
   li button {
@@ -143,7 +153,8 @@ li em {
     outline: none;
   }
 
-  .form-section button {
+  .form-section button,
+.cart-section button {
     margin-top: 20px;
     padding: 10px 16px;
     border: none;
@@ -152,14 +163,15 @@ li em {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-  }
+}
 
   #clearCart {
+    width: 100%;
     background: #e53935;
     color: white;
     border: none;
-    padding: 5px;
     border-radius: 5px;
+    cursor: pointer;
     transition: all 0.3s ease-in-out;
   }
 
@@ -183,114 +195,126 @@ li em {
     }
   }
 </style>
+</head>
 <body>
   <header class="header-container">
        <nav>
          <div class="nav-right">
             <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-            <a href="home.html"><i class="fas fa-home"></i></a>  
-         </div>
-         <div class="nav-left">
-            <div class="register-login-btn">
-                <i class="fas fa-user"></i>
-                <a href="#">ثبت نام/ورود</a>
-            </div>
+            <a href="index.html"><i class="fas fa-home"></i></a>  
          </div>
        </nav>
   </header>
-    <h1>🛒 سبد خرید شما</h1>
-    <div class="container">
-        <div class="cart-section">
-            <ul id="cart-items"></ul>
-            <button id="clearCart">پاک کردن سبد خرید</button>
-        </div>
+  
+  <h1> سبد خرید شما</h1>
+  <div class="container">
+      <div class="cart-section">
+          <ul id="cart-items"></ul>
 
-        <div class="form-section">
-            <label for="username">نام شما:</label>
-            <input type="text" id="username" placeholder="نام خود را وارد کنید">
+          <div id="total-price-container">
+              <p><strong>قیمت کل سفارش:</strong> <span id="total-price">0</span> تومان</p>
+          </div>
 
-            <label for="tableNumber">شماره میز:</label>
-            <input type="number" id="tableNumber" min="1" max="20" placeholder="شماره میز خود را وارد کنید">
-            
-            <button id="finalSubmit">📌 ثبت نهایی</button>
-        </div>
-    </div>
+          <button id="clearCart">پاک کردن سبد خرید</button>
+      </div>
+
+      <div class="form-section">
+          <label for="username">نام شما:</label>
+          <input type="text" id="username" placeholder="نام خود را وارد کنید">
+
+          <label for="tableNumber">شماره میز:</label>
+          <input type="number" id="tableNumber" min="1" max="20" placeholder="شماره میز خود را وارد کنید">
+          
+          <button id="finalSubmit"> ثبت نهایی</button>
+      </div>
+  </div>
+  
   <footer class="footer">
     <div class="footer-container">
       <h2 class="footer-title">فست فود برتر</h2>
       <p class="footer-text">تجربه‌ای بی‌نظیر از طعم و کیفیت</p>
       <div class="social-icons">
-        <a href="#" class="social-link"><i
-            class="fab fa-instagram instagram-icon"></i></a>
-        <a href="#" class="social-link"><i
-            class="fab fa-telegram-plane telegram-icon"></i></a>
-        <a href="#" class="social-link"><i
-            class="fab fa-facebook-f facebook-icon"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-instagram instagram-icon"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-telegram-plane telegram-icon"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-facebook-f facebook-icon"></i></a>
       </div>
           <p class="copyright">© 2025 تمامی حقوق محفوظ است | فست فود برتر</p>
     </div>
   </footer>
 
-    <script>
-      document.getElementById("finalSubmit").onclick = function() {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  <script>
+   document.getElementById("finalSubmit").onclick = function() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let username = document.getElementById("username").value.trim();
     let tableNumber = document.getElementById("tableNumber").value.trim();
 
     if (cart.length === 0) {
-        alert("🚨 سبد خرید شما خالی است! لطفاً ابتدا سفارش دهید.");
+        alert(" سبد خرید شما خالی است! لطفاً ابتدا سفارش دهید.");
         return;
     }
 
     if (!username || !tableNumber) {
-        alert("⚠️ لطفاً نام و شماره میز خود را وارد کنید!");
+        alert(" لطفاً نام و شماره میز خود را وارد کنید!");
         return;
     }
 
-
     alert(`${username} عزیز سفارش شما با موفقیت برای میز ${tableNumber} ثبت شد ✅`);
 
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push({ username, tableNumber, cart });
+    localStorage.setItem("orders", JSON.stringify(orders));
 
-    localStorage.removeItem('cart');
+    localStorage.removeItem("cart");
     loadCart();
 };
 
-function loadCart() {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let cartList = document.getElementById("cart-items");
+    function loadCart() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartList = document.getElementById("cart-items");
+        let totalPriceContainer = document.getElementById("total-price");
 
-    if (cart.length === 0) {
-        cartList.innerHTML = "<p>سبد خرید شما خالی است.</p>";
-    } else {
-        cartList.innerHTML = "";
-        cart.forEach((item, index) => {
-            let listItem = document.createElement("li");
-            listItem.innerHTML = `<strong>${item.topping}</strong> <br>
-                <small>اضافات: ${item.extras ? item.extras.join(", ") : "ندارد"}</small> <br>
-                <em>یادداشت: ${item.notes ? item.notes : "بدون یادداشت"}</em>`;
+        let totalPrice = 0;
 
-            let deleteButton = document.createElement("button");
-            deleteButton.textContent = " حذف";
-            deleteButton.onclick = () => {
-                cart.splice(index, 1);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                loadCart();
-            };
+        if (cart.length === 0) {
+            cartList.innerHTML = "<p>سبد خرید شما خالی است.</p>";
+            totalPriceContainer.textContent = "0"; 
+        } else {
+            cartList.innerHTML = "";
+            cart.forEach((item, index) => {
+                let listItem = document.createElement("li");
+                let itemPrice = item.price ? parseInt(item.price, 10) : 0;
+    totalPrice += itemPrice;
+                
+                listItem.innerHTML = `
+                    <strong>${item.name ? item.name : "نام نامشخص"}</strong> - ${itemPrice} تومان <br>
+                    <small>اضافات: ${item.extras && item.extras.length ? item.extras.join(", ") : "ندارد"}</small> <br>
+                    <em>یادداشت: ${item.notes ? item.notes : "بدون یادداشت"}</em>
+                `;
 
-            listItem.appendChild(deleteButton);
-            cartList.appendChild(listItem);
-        });
+                let deleteButton = document.createElement("button");
+                deleteButton.textContent = " حذف";
+                deleteButton.onclick = () => {
+                    cart.splice(index, 1);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    loadCart();
+                };
+
+                listItem.appendChild(deleteButton);
+                cartList.appendChild(listItem);
+            });
+
+            totalPriceContainer.textContent = totalPrice;
+        }
     }
-}
 
-document.getElementById("clearCart").onclick = function() {
-    localStorage.removeItem('cart');
-    loadCart();
-};
+    document.getElementById("clearCart").onclick = function() {
+        localStorage.removeItem("cart");
+        loadCart();
+    };
 
-window.onload = loadCart;
-
-    </script>
+    window.onload = loadCart;
+  </script>
 
 </body>
 </html>
+

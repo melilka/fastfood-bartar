@@ -1,18 +1,10 @@
-
-  html {
-    scroll-behavior: smooth;
-  }
-
 .slider{
     position: relative;
 
 }
-.slider .slides{
-
-}
 .slider .slides .item{
-    position: relative;
-   display: none;
+  position: relative;
+  display: none;
 
 }
 .slider .slides .item img{
@@ -26,8 +18,8 @@
 }
 .slider .slides .active{
     display: block;
-    animation:fadeIn; /* referring directly to the animation's @keyframe declaration */
-  animation-duration: 2s; /* don't forget to set a duration! */
+    animation:fadeIn; 
+  animation-duration: 2s;
 }
 .slider .buttons{
     position: absolute;
@@ -43,82 +35,107 @@
 .slider .buttons i:hover{
     color: rgb(250, 250, 250);
 }
-
 .product-sec-new{
     padding: 50px 10px;
     font-size: 1em;
 }
-.product-sec-new .shoping-card{
-    text-align: center;
-    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.356);
-    margin: 20px 15px;
-    border-radius: 5px;
-    padding: 5px;
-    transform: scale(0.9);
-}
-.shoping-card .img-sec{
-    position: relative;
-    cursor: pointer;
-}
-.shoping-card .img-sec img{
-    width: 80%;
-    border-radius: 3px;
-}
-.shoping-card .title{
-    margin:15px;
-}
-.shoping-card .buttons{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 15px;
-}
-.shoping-card .buttons .right{
-
-}
-.shoping-card .buttons .right .price{
-    color: #222;
-    font-weight: bold;
-}
-
-.shoping-card .buttons .left{
-    display: flex;
-}
-.shoping-card .buttons .left .extend-btn{
-    display: flex;
-    margin-left: 5px;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgb(4, 173, 69);
-    color: white;
-    width: 40px;
-    padding: 8px 12px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: 0.7s;
-}
-.shoping-card .buttons .left .extend-btn:hover{
-   width: 100px;
-}
-.shoping-card .buttons .left .extend-btn:hover .b-text{
-   display: block;
-}
-.shoping-card .buttons .left .extend-btn .b-text{
-    display: none;
-    color: white;
-}
-.shoping-card .buttons .left .extend-btn .b-icon{
-    color: white;
-}
 
 .shoping-card {
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  margin: 20px 15px;
+  border-radius: 10px;
+  padding: 0;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
 .shoping-card:hover {
-  transform: scale(1.015) translateY(-4px) rotate(0.3deg);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  transform: scale(1.01);
+}
+.shoping-card .img-sec {
+  width: 100%;
+  overflow: hidden;
+  height: 180px;
+}
+
+.shoping-card .img-sec img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.img-sec:hover img {
+  transform: scale(1.05);
+}
+
+.shoping-card .title {
+  margin: 15px 0 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.divider {
+  height: 3px;
+  width: 40%;
+  margin: 0 auto 10px;
+  border-radius: 2px;
+  background: linear-gradient(270deg, #ff8800, #ffbb00, #5dfc02, #0eb493);
+  background-size: 400% 400%;
+  animation: moveDivider 5s ease infinite;
+}
+@keyframes moveDivider {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.shoping-card .buttons {
+  display: flex;
+  justify-content: center;
+  padding: 10px 15px;
+}
+
+.shoping-card .buttons .left {
+  display: flex;
+  gap: 10px;
+  margin-right: 10px;
+}
+
+.shoping-card .extend-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(4, 173, 69);
+  color: white;
+  width: 45px;
+  height: 40px;
+  padding: 8px 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space:nowrap;
+  transition: width 0.5s;
+}
+
+.shoping-card .extend-btn:hover {
+  width: 140px;
+}
+
+.extend-btn .b-text {
+  display: none;
+  margin-left: 6px;
+  color: white;
+}
+
+.extend-btn:hover .b-text {
+  display: inline;
+}
+
+.extend-btn .b-icon {
+  color: white;
 }
 
 

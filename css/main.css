@@ -1,3 +1,6 @@
+ html {
+    scroll-behavior: smooth;
+  }
 @font-face{
     font-family: Tanha;
     src: url(../font/Tanha.ttf);
@@ -12,15 +15,13 @@ body{
     font-size: 16px;
     margin:0px;
   
-  background: linear-gradient(to bottom, #f7f6e6, #fae9b7); /* گرادیان خامه‌ای تا زرد ملایم */
+  background: linear-gradient(to bottom, #f7f6e6, #fae9b7);
 
 
 }
 a{
     text-decoration: none;
-    /*khat zir hame linkaro barmidarim*/
 }
-/* main.css */
 
 body, html {
     overflow-x: hidden;
@@ -35,26 +36,6 @@ header nav{
     padding: 10px 15px;
     font-size: 1em;
        
-}
-header nav .nav-left .register-login-btn{
-    border:1px solid #44444452;
-    padding : 5px 8px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-header nav .nav-left .register-login-btn i{
-    margin: 7px;
-    color: #444;
-
-}
-header nav .nav-left .register-login-btn a{
-    color :444;
-    margin : 0px 10px;
-    
-
 }
 header nav .nav-right{
     display: flex;
@@ -101,7 +82,7 @@ footer h2::after {
   height: 5px;
   background: linear-gradient(to right, transparent, #f06, transparent);
   border-radius: 5px;
-  transform: translateX(-50%) scaleX(0); /* شروع از مرکز با مقیاس صفر */
+  transform: translateX(-50%) scaleX(0);
   transform-origin: center;
   animation: lineGrow 0.6s ease-out forwards;
 }
